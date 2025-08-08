@@ -20,6 +20,24 @@ type Props = {
   mouseInteractionRadius?: number;
 };
 
+type Uniforms = {
+  iTime: { value: number };
+  iResolution: { value: [number, number] };
+  enableRainbow: { value: boolean };
+  gridColor: { value: [number, number, number] };
+  rippleIntensity: { value: number };
+  gridSize: { value: number };
+  gridThickness: { value: number };
+  fadeDistance: { value: number };
+  vignetteStrength: { value: number };
+  glowIntensity: { value: number };
+  opacity: { value: number };
+  gridRotation: { value: number };
+  mouseInteraction: { value: boolean };
+  mousePosition: { value: [number, number] };
+  mouseInfluence: { value: number };
+  mouseInteractionRadius: { value: number };
+};
 const RippleGrid: React.FC<Props> = ({
   enableRainbow = false,
   gridColor = "#ffffff",
@@ -38,7 +56,7 @@ const RippleGrid: React.FC<Props> = ({
   const mousePositionRef = useRef({ x: 0.5, y: 0.5 });
   const targetMouseRef = useRef({ x: 0.5, y: 0.5 });
   const mouseInfluenceRef = useRef(0);
-  const uniformsRef = useRef<any>(null);
+  const uniformsRef = useRef<Uniforms | null>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -168,7 +186,7 @@ void main() {
 
     const uniforms = {
       iTime: { value: 0 },
-      iResolution: { value: [1, 1] },
+      iResolution: { value: [1, 1] as [number, number] },
       enableRainbow: { value: enableRainbow },
       gridColor: { value: hexToRgb(gridColor) },
       rippleIntensity: { value: rippleIntensity },
@@ -180,7 +198,7 @@ void main() {
       opacity: { value: opacity },
       gridRotation: { value: gridRotation },
       mouseInteraction: { value: mouseInteraction },
-      mousePosition: { value: [0.5, 0.5] },
+      mousePosition: { value: [0.5, 0.5] as [number, number] },
       mouseInfluence: { value: 0 },
       mouseInteractionRadius: { value: mouseInteractionRadius },
     };
@@ -194,7 +212,7 @@ void main() {
     const resize = () => {
       const { clientWidth: w, clientHeight: h } = containerRef.current!;
       renderer.setSize(w, h);
-      uniforms.iResolution.value = [w, h];
+      uniforms.iResolution.value = [w, h] as [number, number];
     };
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -252,14 +270,8 @@ void main() {
       window.removeEventListener("resize", resize);
       if (mouseInteraction && containerRef.current) {
         containerRef.current.removeEventListener("mousemove", handleMouseMove);
-        containerRef.current.removeEventListener(
-          "mouseenter",
-          handleMouseEnter,
-        );
-        containerRef.current.removeEventListener(
-          "mouseleave",
-          handleMouseLeave,
-        );
+        containerRef.current.removeEventListener("mouseenter", handleMouseEnter);
+        containerRef.current.removeEventListener("mouseleave", handleMouseLeave);
       }
       renderer.gl.getExtension("WEBGL_lose_context")?.loseContext();
       containerRef.current?.removeChild(gl.canvas);
