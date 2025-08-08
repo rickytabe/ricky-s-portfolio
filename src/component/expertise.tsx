@@ -51,71 +51,27 @@ export default function ExpertiseSection() {
 
   return (
     <section className="relative overflow-hidden bg-black py-12 px-4 md:px-10 lg:px-20 w-full">
-      {/* Shared background elements from About section */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Grid pattern */}
-        <div className="absolute inset-0 opacity-10" style={{
-          backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)',
-          backgroundSize: '40px 40px'
-        }}></div>
-        
-        {/* Animated particles */}
-        <div className="absolute inset-0 opacity-20">
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute rounded-full bg-blue-500"
-              initial={{
-                x: Math.random() * 100 + 'vw',
-                y: Math.random() * 100 + 'vh',
-                width: Math.random() * 10 + 2 + 'px',
-                height: Math.random() * 10 + 2 + 'px'
-              }}
-              animate={{
-                x: Math.random() * 100 + 'vw',
-                y: Math.random() * 100 + 'vh',
-                transition: {
-                  duration: Math.random() * 10 + 10,
-                  repeat: Infinity,
-                  repeatType: 'reverse'
-                }
-              }}
-            />
-          ))}
-        </div>
-      </div>
+      {/* Simplified background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black opacity-90"></div>
 
       {/* Section content */}
       <div className="relative max-w-7xl mx-auto">
-        {/* Animated title */}
+        {/* Title */}
         <motion.div 
           className="mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <motion.h2 
-            className="text-3xl md:text-4xl font-bold tracking-wide"
-            animate={{
-              textShadow: [
-                '0 0 8px rgba(59, 130, 246, 0)',
-                '0 0 8px rgba(59, 130, 246, 0.3)',
-                '0 0 8px rgba(59, 130, 246, 0)'
-              ]
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity
-            }}
-          >
-           <span className='text-blue-500'>#2</span> My Expertise
-          </motion.h2>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-wide">
+            <span className='text-blue-500'>#2</span> My Expertise
+          </h2>
           <motion.div 
             className="h-1 bg-gradient-to-r from-blue-400 to-purple-500 mt-2 w-72"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           />
         </motion.div>
@@ -125,19 +81,15 @@ export default function ExpertiseSection() {
           {expertise.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              whileHover={{ y: -5 }}
               className="group relative"
             >
-              {/* Glassmorphism card */}
-              <div className="h-full backdrop-blur-lg bg-white/5 border border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
-                {/* Glowing icon background */}
-                <div className="absolute -top-4 -right-4 w-16 h-16 bg-blue-500/20 rounded-full blur-xl"></div>
-                
-                {/* Icon with gradient ring */}
+              {/* Simplified card */}
+              <div className="h-full bg-gray-900/80 border border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                {/* Icon */}
                 <div className="relative z-10 mb-6">
                   <div className="inline-flex items-center justify-center p-3 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-600/20">
                     {item.icon}
@@ -153,31 +105,23 @@ export default function ExpertiseSection() {
                 </p>
                 
                 {/* Hover effect line */}
-                <motion.div 
-                  className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-blue-400 to-purple-500"
-                  initial={{ width: 0 }}
-                  whileHover={{ width: '100%' }}
-                  transition={{ duration: 0.3 }}
-                />
+                <div className="absolute bottom-0 left-0 h-1 w-0 group-hover:w-full bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-300" />
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Social Proof with Counters - Now positioned below expertise cards */}
+        {/* Social Proof with Counters */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-8 shadow-2xl"
+          className="bg-gray-900/80 border border-white/10 rounded-2xl p-8 shadow-2xl"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {/* Years of Experience */}
-            <motion.div 
-              className="text-center"
-              whileHover={{ scale: 1.05 }}
-            >
+            <div className="text-center">
               <div className="flex justify-center mb-3">
                 <Calendar className="text-blue-400 w-8 h-8" />
               </div>
@@ -186,13 +130,10 @@ export default function ExpertiseSection() {
                 <span className="text-blue-400">+</span>
               </div>
               <p className="text-white/80 uppercase text-sm tracking-wider">Years Experience</p>
-            </motion.div>
+            </div>
 
             {/* Projects Completed */}
-            <motion.div 
-              className="text-center"
-              whileHover={{ scale: 1.05 }}
-            >
+            <div className="text-center">
               <div className="flex justify-center mb-3">
                 <Code className="text-purple-400 w-8 h-8" />
               </div>
@@ -201,13 +142,10 @@ export default function ExpertiseSection() {
                 <span className="text-purple-400">+</span>
               </div>
               <p className="text-white/80 uppercase text-sm tracking-wider">Projects Completed</p>
-            </motion.div>
+            </div>
 
             {/* Clients */}
-            <motion.div 
-              className="text-center"
-              whileHover={{ scale: 1.05 }}
-            >
+            <div className="text-center">
               <div className="flex justify-center mb-3">
                 <Users className="text-blue-400 w-8 h-8" />
               </div>
@@ -216,13 +154,10 @@ export default function ExpertiseSection() {
                 <span className="text-blue-400">+</span>
               </div>
               <p className="text-white/80 uppercase text-sm tracking-wider">Happy Clients</p>
-            </motion.div>
+            </div>
 
             {/* Commercials */}
-            <motion.div 
-              className="text-center"
-              whileHover={{ scale: 1.05 }}
-            >
+            <div className="text-center">
               <div className="flex justify-center mb-3">
                 <Film className="text-purple-400 w-8 h-8" />
               </div>
@@ -230,7 +165,7 @@ export default function ExpertiseSection() {
                 <CountUp from={0} to={2} duration={1} />
               </div>
               <p className="text-white/80 uppercase text-sm tracking-wider">Commercials</p>
-            </motion.div>
+            </div>
           </div>
         </motion.div>
       </div>

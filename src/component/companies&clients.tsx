@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 
 const companies = [
@@ -14,151 +14,70 @@ const companies = [
 
 export default function ClientsSection() {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const controls = useAnimation();
-  const particlesRef = useRef<HTMLDivElement | null>(null);
 
-  // Infinite auto-scroll animation
+  // Infinite auto-scroll animation using CSS animation
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
-    const itemWidth = 320; // width of each card + margin
-    const scrollSpeed = 50; // pixels per second
-    const totalWidth = itemWidth * companies.length;
-    const duration = totalWidth / scrollSpeed;
-
-    const animateScroll = async () => {
-      // Animate to the end
-      await controls.start({
-        x: -totalWidth,
-        transition: { duration, ease: "linear" }
-      });
-      
-      // Immediately reset to start (no animation)
-      controls.set({ x: 0 });
-      
-      // Repeat
-      animateScroll();
-    };
-
-    animateScroll();
-
-    return () => controls.stop();
-  }, [controls]);
-
-  // Create animated particles
-  useEffect(() => {
-    const container = particlesRef.current;
-    if (!container) return;
-
-    for (let i = 0; i < 20; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'absolute rounded-full bg-blue-500';
-      
-      // Random initial position
-      particle.style.left = `${Math.random() * 100}%`;
-      particle.style.top = `${Math.random() * 100}%`;
-      particle.style.width = `${Math.random() * 10 + 2}px`;
-      particle.style.height = particle.style.width;
-      
-      container.appendChild(particle);
-
-      // Animate particle
-      const duration = Math.random() * 15 + 10;
-      const keyframes = [
-        { 
-          transform: `translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px)`,
-          opacity: 0.2
-        },
-        { 
-          transform: `translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px)`,
-          opacity: 0.5
-        },
-      ];
-
-      particle.animate(keyframes, {
-        duration: duration * 1000,
-        direction: 'alternate',
-        iterations: Infinity,
-        easing: 'ease-in-out'
-      });
-    }
+    container.style.animation = 'scroll 30s linear infinite';
   }, []);
 
   return (
     <section className="relative py-20 px-4 md:px-10 lg:px-20 bg-black overflow-hidden w-full">
-      {/* Animated particles background */}
-      <div 
-        ref={particlesRef}
-        className="absolute inset-0 opacity-20 pointer-events-none"
-      />
-      
-      {/* Grid background */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)',
-          backgroundSize: '40px 40px'
-        }}></div>
-      </div>
+      {/* Simplified background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black to-gray-900 opacity-90"></div>
 
       <div className="relative max-w-7xl mx-auto">
-        
         <motion.div
-                            className="mb-12"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
-                            viewport={{ once: true }}
-                          >
-                            <motion.h2
-                              className="text-3xl md:text-4xl font-bold tracking-wide"
-                              animate={{
-                                textShadow: [
-                                  '0 0 8px rgba(59, 130, 246, 0)',
-                                  '0 0 8px rgba(59, 130, 246, 0.3)',
-                                  '0 0 8px rgba(59, 130, 246, 0)'
-                                ]
-                              }}
-                              transition={{
-                                duration: 4,
-                                repeat: Infinity
-                              }}
-                            >
-                             <span className='text-blue-500'>#4</span> COMPANIES AND CLIENTS
-                            </motion.h2>
-                            <motion.div
-                              className="h-1 bg-gradient-to-r from-blue-400 to-purple-500 mt-2 w-137"
-                              initial={{ scaleX: 0 }}
-                              whileInView={{ scaleX: 1 }}
-                              transition={{ duration: 0.8, delay: 0.3 }}
-                              viewport={{ once: true }}
-                            />
-                          </motion.div>
-        
-        {/* Infinite scrolling company logos */}
-        <div className="relative h-64 overflow-hidden py-44">
+          className="mb-12"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold tracking-wide">
+            <span className='text-blue-500'>#4</span> COMPANIES AND CLIENTS
+          </h2>
           <motion.div
+            className="h-1 bg-gradient-to-r from-blue-400 to-purple-500 mt-2 w-137"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          />
+        </motion.div>
+        
+        {/* Infinite scrolling company logos using CSS animation */}
+        <div className="relative h-64 overflow-hidden py-44">
+          <style jsx>{`
+            @keyframes scroll {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+          `}</style>
+          
+          <div
             ref={containerRef}
-            className="flex items-center h-full"
-            animate={controls}
-            style={{ width: 'max-content' }}
+            className="flex items-center h-full w-max"
           >
             {[...companies, ...companies].map((company, index) => (
-              <motion.div
+              <div
                 key={`${company.name}-${index}`}
-                className="flex-shrink-0 w-64 h-64 mx-8 flex items-center justify-center"
-                whileHover={{ scale: 1.1 }}
+                className="flex-shrink-0 w-64 h-64 mx-8 flex items-center justify-center group"
               >
-                <div className="relative w-full h-full backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-8 flex items-center justify-center hover:border-blue-400/50 transition-all duration-300">
+                <div className="relative w-full h-full bg-gray-900/80 border border-white/10 rounded-2xl p-8 flex items-center justify-center hover:border-blue-400/50 transition-all duration-300 group-hover:scale-105">
                   <img 
                     src={company.logo} 
                     alt={company.name} 
-                    className="max-h-55 max-w-full object-contain "
+                    className="max-h-55 max-w-full object-contain"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
