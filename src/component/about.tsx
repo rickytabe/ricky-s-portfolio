@@ -18,7 +18,7 @@ export default function AboutSection() {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-wide">
+          <h2 className="text-3xl md:text-4xl text-white font-bold tracking-wide">
             <span className='text-blue-500'>#1</span> ABOUT ME
           </h2>
           <motion.div

@@ -4,6 +4,8 @@ import ExpertiseSection from "@/component/expertise";
 import HeroSection from "@/component/hero";
 import ProjectsSection from "@/component/pro";
 import Navbar from "@/component/navbar";
+import ContactSection from "@/component/contact";
+import Footer from "@/component/footer";
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
      <ExpertiseSection />
      <ClientsSection />
      <ProjectsSection />
+     <ContactSection />
+     <Footer />
     </div>
   );
 }
