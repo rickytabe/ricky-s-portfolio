@@ -38,7 +38,7 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="relative py-20 px-4 sm:px-6 lg:px-8 bg-black w-full flex items-center justify-center">
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black opacity-90"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-90"></div>
       
       <div className="relative max-w-7xl mx-auto">
         <div className="text-center mb-16">
@@ -56,7 +56,7 @@ export default function ContactSection() {
           {/* Contact Form */}
           <form 
             onSubmit={handleSubmit}
-            className="bg-gray-900/80 border border-white/10 rounded-2xl p-6 md:p-8 backdrop-blur-sm ml-20"
+            className="bg-gray-900/80 border border-white/10 rounded-2xl p-6 md:p-8 backdrop-blur-sm mt:ml-20"
           >
             <div className="space-y-6">
               {/* Name Field */}

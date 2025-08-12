@@ -26,7 +26,7 @@ export default function ClientsSection() {
   return (
     <section className="relative py-20 px-4 md:px-10 lg:px-20 bg-black overflow-hidden w-full">
       {/* Simplified background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black to-gray-900 opacity-90"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-90"></div>
 
       <div className="relative max-w-7xl mx-auto">
         <motion.div

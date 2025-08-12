@@ -171,7 +171,7 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section className="relative py-20 px-4 md:px-10 lg:px-20 bg-black w-full">
+    <section id='projects' className="relative py-20 px-4 md:px-10 lg:px-20 bg-black w-full">
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black opacity-90"></div>
 
@@ -266,7 +266,7 @@ export default function ProjectsSection() {
           <button
             onClick={goToPrevPage}
             disabled={currentPage === 1}
-            className={`px-4 py-2 rounded-md ${currentPage === 1 ? 'bg-gray-800 text-gray-500 cursor-not-allowed' : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700'}`}
+            className={`px-4 py-2 hidden md:block rounded-md ${currentPage === 1 ? 'bg-gray-800 text-gray-500 cursor-not-allowed' : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700'}`}
           >
             Previous
           </button>
@@ -286,7 +286,7 @@ export default function ProjectsSection() {
           <button
             onClick={goToNextPage}
             disabled={currentPage === totalPages}
-            className={`px-4 py-2 rounded-md ${currentPage === totalPages ? 'bg-gray-800 text-gray-500 cursor-not-allowed' : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700'}`}
+            className={`px-4 py-2 hidden md:block rounded-md ${currentPage === totalPages ? 'bg-gray-800 text-gray-500 cursor-not-allowed' : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700'}`}
           >
             Next
           </button>

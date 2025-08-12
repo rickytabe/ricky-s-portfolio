@@ -50,7 +50,7 @@ export default function ExpertiseSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-black py-12 px-4 md:px-10 lg:px-20 w-full">
+    <section id='expertise' className="relative overflow-hidden bg-black py-12 px-4 md:px-10 lg:px-20 w-full">
       {/* Simplified background */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black opacity-90"></div>
 

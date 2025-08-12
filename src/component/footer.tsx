@@ -37,7 +37,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-black border-t border-white/10 w-full overflow-hidden">
+    <footer  className="relative bg-black border-t border-white/10 w-full overflow-hidden">
       {/* Gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20 opacity-30"></div>
       
@@ -74,7 +74,7 @@ export default function Footer() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/60 hover:text-white transition-colors hover:scale-110 transform transition-transform"
+                  className="text-white/60 hover:text-white  hover:scale-110 transform transition-transform"
                   aria-label={link.name}
                 >
                   {link.icon}

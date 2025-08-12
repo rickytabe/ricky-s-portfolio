@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function AboutSection() {
   return (
-    <section className="relative overflow-hidden bg-black py-4 md:py-10 px-4 w-full h-full">
+    <section id="about" className="relative overflow-hidden bg-black py-4 md:py-10 px-4 w-full h-full">
       {/* Simplified background */}
       <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-90"></div>
 

@@ -26,6 +26,11 @@ module.exports = {
           '75%': { transform: 'translateY(-20px) translateX(-10px)' },
         },
       },
+       boxShadow: {
+        'glow-purple': '0 0 15px rgba(168, 85, 247, 0.3)',
+        'glow-purple-lg': '0 0 25px rgba(168, 85, 247, 0.4)',
+        'glow-purple-xl': '0 0 35px rgba(168, 85, 247, 0.5)',
+      },
     },
   },
   plugins: [],

@@ -3,11 +3,11 @@
 import RippleGrid from "@/Backgrounds/RippleGrid/RippleGrid";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { X, Linkedin, Mail } from "lucide-react";
+import { X, Linkedin, Mail, GithubIcon } from "lucide-react";
 
 export default function HeroSection() {
     return (
-        <section className="relative h-full w-full overflow-hidden bg-black text-white -mt-25 py-30">
+        <section id="home" className="relative h-full w-full overflow-hidden bg-black text-white -mt-25 py-30">
             {/* Background - Ripple Grid */}
             <div className="absolute inset-0 pt-30">
                 <RippleGrid
@@ -65,12 +65,13 @@ export default function HeroSection() {
                                 </p>
 
                                 <div className="mt-8 flex flex-wrap gap-4 mx-4">
-                                    <a href="https://twitter.com/yourhandle" className="bg-purple-500/50 backdrop-blur-md p-4 rounded-md " target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" className="w-6 h-6">
+                                    <a href="https://x.com/RickyTabe" className="bg-purple-500/50 backdrop-blur-md p-4 rounded-md " target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" className="w-6 h-6">
                                         <path d="M19.961 2.52h-3.65l-4.32 5.92L7.63 2.52H2.77l6.91 9.19-7.11 9.81h3.64l4.65-6.38 4.75 6.38h4.88l-7.33-9.83 7.7-9.17Z" />
                                     </svg>
                                     </a>
-                                    <a href="https://linkedin.com/in/yourhandle" className=" bg-purple-500/50 backdrop-blur-md p-4 rounded-md" target="_blank"><Linkedin /></a>
-                                    <a href="mailto:youremail@example.com" className=" bg-purple-500/50 backdrop-blur-md p-4 rounded-md" ><Mail /></a>
+                                    <a href="https://linkedin.com/in/taberickson" className=" bg-purple-500/50 backdrop-blur-md p-4 rounded-md" target="_blank"><Linkedin /></a>
+                                    <a href="mailto:rickytabe2@gmail.com" className=" bg-purple-500/50 backdrop-blur-md p-4 rounded-md" ><Mail /></a>
+                                    <a href="https://github.com/rickytabe" className=" bg-purple-500/50 backdrop-blur-md p-4 rounded-md"><GithubIcon /></a>
                                 </div>
                             </motion.div>
                         </motion.div>
