@@ -48,7 +48,7 @@ export default function ContactSection() {
             </span>
           </h2>
           <p className="text-white/70 max-w-2xl mx-auto">
-            Have a project in mind or want to chat? Drop me a message below and I'll get back to you as soon as possible.
+            Have a project in mind or want to chat? Drop me a message below and I&apos;ll get back to you as soon as possible.
           </p>
         </div>
 
@@ -131,7 +131,7 @@ export default function ContactSection() {
               {/* Form Status */}
               {submitStatus === 'success' && (
                 <div className="mt-4 p-3 bg-green-900/30 border border-green-500/30 rounded-lg text-green-400 text-sm">
-                  Message sent successfully! I'll get back to you soon.
+                  Message sent successfully! I&apos;ll get back to you soon.
                 </div>
               )}
               {submitStatus === 'error' && (

@@ -65,7 +65,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-white/70 text-sm">
-              Building digital experiences that matter. Let's create something amazing together.
+              Building digital experiences that matter. Let&apos;s create something amazing together.
             </p>
             <div className="flex items-center gap-4">
               {socialLinks.map((link, index) => (
