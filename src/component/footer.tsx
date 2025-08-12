@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Github, Twitter, Linkedin, Mail, ExternalLink } from 'lucide-react';
+import { Github, Twitter, Linkedin, Mail, ExternalLink, X } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -19,7 +19,7 @@ export default function Footer() {
     },
     { 
       name: 'LinkedIn', 
-      icon: <Linkedin className="w-5 h-5" />, 
+      icon: <X className="w-5 h-5" />, 
       url: 'https://linkedin.com/in/yourprofile' 
     },
     { 
@@ -53,7 +53,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-3">
               <div className="relative h-10 w-10 rounded-full overflow-hidden border border-white/10">
                 <Image
-                  src="/your-logo-or-photo.jpg" // Replace with your image
+                  src="/suit-photo.png" // Replace with your image
                   alt="Your Name"
                   fill
                   className="object-cover"
@@ -61,7 +61,7 @@ export default function Footer() {
                 />
               </div>
               <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-                Your Name
+                  Tabe Rickson
               </span>
             </Link>
             <p className="text-white/70 text-sm">
