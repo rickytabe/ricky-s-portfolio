@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { Github, Twitter, Linkedin, Mail, Menu, X, Download, FileText, ArrowRight, DownloadIcon } from 'lucide-react';
+import { Github,  Linkedin, Mail, Menu, X, Download, FileText,  DownloadIcon } from 'lucide-react';
 import RotatingText from '@/Backgrounds/rotatingtext';
 
 export default function Navbar() {

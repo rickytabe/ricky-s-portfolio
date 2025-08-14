@@ -6,7 +6,7 @@ import ProjectsSection from "@/component/projects";
 import Navbar from "@/component/navbar";
 import ContactSection from "@/component/contact";
 import Footer from "@/component/footer";
-import BlogPreviewSection from "@/component/blog";
+
 
 export default function Home() {
   return (

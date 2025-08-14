@@ -3,7 +3,7 @@
 import RippleGrid from "@/Backgrounds/RippleGrid/RippleGrid";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { X, Linkedin, Mail, GithubIcon } from "lucide-react";
+import { Linkedin, Mail, GithubIcon } from "lucide-react";
 import RotatingText from "@/Backgrounds/rotatingtext";
 
 
