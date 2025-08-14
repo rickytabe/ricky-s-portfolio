@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { Send } from 'lucide-react';
+import { Send, Github, Linkedin, Mail } from 'lucide-react';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -36,9 +36,44 @@ export default function ContactSection() {
     }
   };
 
+  const socialLinks = [
+    { 
+      name: 'GitHub', 
+      icon: <Github className="w-5 h-5" />, 
+      url: 'https://github.com/rickytabe' 
+    },
+    {
+      name: 'X',
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" 
+          viewBox="0 0 24 24" 
+          fill="currentColor" 
+          className="w-5 h-5">
+          <path d="M19.961 2.52h-3.65l-4.32 5.92L7.63 2.52H2.77l6.91 9.19-7.11 9.81h3.64l4.65-6.38 4.75 6.38h4.88l-7.33-9.83 7.7-9.17Z" />
+        </svg>
+      ),
+      url: 'https://twitter.com/rickytabe'
+    },
+    { 
+      name: 'LinkedIn', 
+      icon: <Linkedin className="w-5 h-5" />, 
+      url: 'https://linkedin.com/in/taberickson' 
+    },
+    { 
+      name: 'Email', 
+      icon: <Mail className="w-5 h-5" />, 
+      url: 'mailto:rickytabe2@gmail.com' 
+    },
+    {
+      name: 'WhatsApp',
+      icon:<img src="/whatsapp.svg" alt="WhatsApp" className="w-5 h-5 invert" />,
+      url: 'https://wa.me/237671353341?text=Hi%20Tabe,%20I%20came%20across%20your%20portfolio%20and%20would%20love%20to%20discuss%20a%20potential%20collaboration%20or%20job%20opportunity.'
+    }
+  ];
+
   return (
     <section id="contact" className="relative py-20 px-4 sm:px-6 lg:px-8 bg-black w-full flex items-center justify-center">
-      <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-90"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-90 "></div>
       
       <div className="relative max-w-7xl mx-auto">
         <div className="text-center mb-16">
@@ -56,7 +91,7 @@ export default function ContactSection() {
           {/* Contact Form */}
           <form 
             onSubmit={handleSubmit}
-            className="bg-gray-900/80 border border-white/10 rounded-2xl p-6 md:p-8 backdrop-blur-sm mt:ml-20"
+            className="bg-gray-900/80 border border-white/10 rounded-2xl p-6 md:p-8 backdrop-blur-sm mt:ml-20  hover:bg-gradient-to-br from-blue-500/20 to-purple-600/20 transition-all duration-30000 text-white"
           >
             <div className="space-y-6">
               {/* Name Field */}
@@ -140,13 +175,27 @@ export default function ContactSection() {
                 </div>
               )}
             </div>
+            <div className="flex justify-center gap-4 mt-4">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full bg-gray-800 hover:bg-blue-600 transition-colors flex items-center justify-center"
+                  aria-label={social.name}
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
           </form>
 
           {/* Image Column - Only visible on large screens */}
           <div className="hidden lg:block relative h-full">
             <div className="relative aspect-square w-3/4 h-full ml-20 rounded-2xl overflow-hidden border border-white/10">
               <Image
-                src="/suit-photo.png" // Replace with your image path
+                src="/main-photo.png" // Replace with your image path
                 alt="Profile Image"
                 fill
                 className="object-fit"

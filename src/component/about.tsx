@@ -57,7 +57,7 @@ export default function AboutSection() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="bg-gray-900/80 border border-white/10 rounded-2xl p-8 lg:p-12 shadow-2xl"
+          className="bg-gray-900/80 border border-white/10 rounded-2xl p-8 lg:p-12 shadow-2xl hover:bg-gradient-to-br from-blue-500/20 to-purple-600/20 transition-all duration-30000 text-white"
         >
           <h2 className="text-blue-400 font-mono uppercase tracking-widest text-sm mb-2">
             About
@@ -90,7 +90,7 @@ export default function AboutSection() {
             ].map((role, index) => (
               <div
                 key={index}
-                className="group"
+                className="group text-white relative overflow-hidden"
               >
                 <div className="flex items-start gap-4">
                   <div className="text-2xl font-bold bg-gradient-to-br from-blue-500 to-purple-600 bg-clip-text text-transparent">

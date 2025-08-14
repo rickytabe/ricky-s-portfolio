@@ -26,17 +26,18 @@ export default function ClientsSection() {
   return (
     <section className="relative py-20 px-4 md:px-10 lg:px-20 bg-black overflow-hidden w-full">
       {/* Simplified background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-90"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-90  "></div>
 
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative max-w-7xl mx-auto ">
         <motion.div
-          className="mb-12"
+          className="mb-12 "
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
+
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-wide">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-wide text-white">
             <span className='text-blue-500'>#4</span> COMPANIES AND CLIENTS
           </h2>
           <motion.div
@@ -66,7 +67,7 @@ export default function ClientsSection() {
                 key={`${company.name}-${index}`}
                 className="flex-shrink-0 w-64 h-64 mx-8 flex items-center justify-center group"
               >
-                <div className="relative w-full h-full bg-gray-900/80 border border-white/10 rounded-2xl p-8 flex items-center justify-center hover:border-blue-400/50 transition-all duration-300 group-hover:scale-105">
+                <div className="relative w-full h-full bg-gray-900/80 border border-white/10 rounded-2xl p-8 flex items-center justify-center hover:border-blue-400/50 transition-all duration-300 group-hover:scale-105 hover:bg-gradient-to-br from-blue-500/20 to-purple-600/20">
                   <img 
                     src={company.logo} 
                     alt={company.name} 

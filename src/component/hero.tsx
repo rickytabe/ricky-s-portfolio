@@ -4,6 +4,8 @@ import RippleGrid from "@/Backgrounds/RippleGrid/RippleGrid";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { X, Linkedin, Mail, GithubIcon } from "lucide-react";
+import RotatingText from "@/Backgrounds/rotatingtext";
+
 
 export default function HeroSection() {
     return (
@@ -59,10 +61,22 @@ export default function HeroSection() {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.6, duration: 0.8 }}
+
                             >
-                                <p className="font-bold font-mono text-xl md:text-2xl text-gray-300 ml-4">
-                                    FULLSTACK DEVELOPER | MOBILE DEVELOPER | SOFTWARE ENGINEER
-                                </p>
+                                <div className="font-bold font-mono text-sm md:text-2xl text-gray-300 ml-4 flex items-center justify-start ">
+                                    <RotatingText
+                                        texts={['FULLSTACK DEVELOPER', 'MOBILE DEVELOPER', 'SOFTWARE ENGINEER', 'AI DEVELOPER', 'UX/UI DESIGNER']}
+                                        mainClassName="px-4 bg-gradient-to-r from-blue-400 to-purple-500  text-white overflow-hidden pt-3 pb-2 justify-center rounded-lg"
+                                        staggerFrom={"last"}
+                                        initial={{ y: "100%" }}
+                                        animate={{ y: 0 }}
+                                        exit={{ y: "-120%" }}
+                                        staggerDuration={0.025}
+                                        splitLevelClassName="overflow-hidden pb-0.5"
+                                        transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                                        rotationInterval={4000}
+                                    />
+                                </div>
 
                                 <div className="mt-8 flex flex-wrap gap-4 mx-4">
                                     <a href="https://x.com/RickyTabe" className="bg-purple-500/50 backdrop-blur-md p-4 rounded-md " target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" className="w-6 h-6">
@@ -70,9 +84,13 @@ export default function HeroSection() {
                                     </svg>
                                     </a>
                                     <a href="https://linkedin.com/in/taberickson" className=" bg-purple-500/50 backdrop-blur-md p-4 rounded-md" target="_blank"><Linkedin /></a>
-                                    <a href="mailto:rickytabe2@gmail.com" className=" bg-purple-500/50 backdrop-blur-md p-4 rounded-md" ><Mail /></a>
+                                    <a href="mailto:rickytabe2@gmail.com" className=" bg-purple-500/50 backdrop-blur-md p-4 rounded-md hidden md:block" ><Mail /></a>
                                     <a href="https://github.com/rickytabe" className=" bg-purple-500/50 backdrop-blur-md p-4 rounded-md"><GithubIcon /></a>
                                 </div>
+                                <h2 className="text-sm font-mono sm:text-3xl md:text-xl font-semibold text-center md:text-start max-w-3xl mx-auto pt-6 mt-4 bg-black/50 backdrop-blur-md px-4 py-2">
+                                    &quot;I build <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">fast, scalable, reliable and user-friendly </span>apps that deliver performance and a seemless digital experience.&quot;
+                                </h2>
+
                             </motion.div>
                         </motion.div>
 
@@ -83,8 +101,8 @@ export default function HeroSection() {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 0.8, duration: 0.8 }}
                         >
-                            <div className="relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl md:ml-10">
-                                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 z-10"></div>
+                            <div className="relative w-full max-w-md aspect-[3/4] rounded-2xl  overflow-hidden shadow-2xl md:ml-10">
+                                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 z-0"></div>
                                 <Image
                                     src="/my-photo2.png"
                                     alt="Tabe Rickson"

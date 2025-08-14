@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { Github, Twitter, Linkedin, Mail, Menu, X, Download, FileText, ArrowRight } from 'lucide-react';
+import { Github, Twitter, Linkedin, Mail, Menu, X, Download, FileText, ArrowRight, DownloadIcon } from 'lucide-react';
+import RotatingText from '@/Backgrounds/rotatingtext';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -20,23 +21,23 @@ export default function Navbar() {
   ];
 
   const socialLinks = [
-    { 
-      icon: <Github className="w-5 h-5" />, 
+    {
+      icon: <Github className="w-5 h-5" />,
       url: "https://github.com/rickytabe",
       name: "GitHub"
     },
-    { 
-      icon: <img src="/x.svg" alt="x" className="w-5 h-5 text-white invert opacity-70"  />, 
+    {
+      icon: <img src="/x.svg" alt="x" className="w-5 h-5 text-white invert opacity-70" />,
       url: "https://twitter.com/rickytabe",
-      name: "Twitter"
+      name: "X"
     },
-    { 
-      icon: <Linkedin className="w-5 h-5" />, 
+    {
+      icon: <Linkedin className="w-5 h-5" />,
       url: "https://linkedin.com/in/tabe-rickson",
       name: "LinkedIn"
     },
-    { 
-      icon: <Mail className="w-5 h-5" />, 
+    {
+      icon: <Mail className="w-5 h-5" />,
       url: "mailto:rickytabe2@email.com",
       name: "Email"
     }
@@ -45,7 +46,7 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
-      
+
       // Detect active section
       const sections = Links.map(link => document.getElementById(link.id));
       const scrollPosition = window.scrollY + 100;
@@ -107,7 +108,7 @@ export default function Navbar() {
           `}>
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
-              <motion.div 
+              <motion.div
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 whileTap={{ scale: 0.9 }}
                 className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg shadow-lg"
@@ -129,7 +130,7 @@ export default function Navbar() {
                   `}
                 >
                   {activeSection === item.id && (
-                    <motion.span 
+                    <motion.span
                       layoutId="navActiveIndicator"
                       className="absolute inset-0 bg-gradient-to-r from-blue-500/40 to-purple-600/40 rounded-full"
                       transition={{ type: 'spring', bounce: 0.3, duration: 0.6 }}
@@ -156,17 +157,31 @@ export default function Navbar() {
                   {social.icon}
                 </motion.a>
               ))}
-              
+
               <motion.button
                 onClick={handleResumeClick}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   boxShadow: '0 5px 15px rgba(99, 102, 241, 0.3)'
                 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:shadow-lg transition-all flex items-center gap-2"
-              >
-                Resume
+              ><span className="hidden md:inline"><DownloadIcon className="w-4 h-4" /></span>
+                <RotatingText
+                  texts={[
+                    "Download Resume",
+                    "Get My CV",
+                    "View My Experience"
+                  ]}
+                  mainClassName="bg-transparent text-white overflow-hidden justify-center font-serif "
+                  staggerFrom={"last"}
+                  initial={{ y: "100%" }}
+                  animate={{ y: 0 }}
+                  exit={{ y: "-120%" }}
+                  staggerDuration={0.025}
+                  transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                  rotationInterval={10000}
+                />
                 <motion.span
                   animate={{ x: [0, 2, 0] }}
                   transition={{ repeat: Infinity, duration: 1.5 }}
@@ -212,7 +227,7 @@ export default function Navbar() {
                     {item.name}
                   </motion.button>
                 ))}
-                
+
                 <div className="flex justify-center gap-4 mt-4 pt-4 border-t border-white/10">
                   {socialLinks.map((social, index) => (
                     <motion.a
@@ -262,7 +277,7 @@ export default function Navbar() {
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Download Resume</h3>
                 <p className="text-gray-300 mb-6">Would you like to download my resume in PDF format?</p>
-                
+
                 <div className="flex gap-3 w-full">
                   <motion.button
                     onClick={() => setShowResumeModal(false)}

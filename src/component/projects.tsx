@@ -12,8 +12,8 @@ const projects = [
     description:
       'A secure and intelligent car rental platform built to transform the underdeveloped rental infrastructure in my country. Empowers rental services and customers with seamless online booking, fleet management, and fraud prevention.',
     image: '/mobi-rent.webp',
-    webLink: 'https://mobi-rent.example.com',
-    githubLink: 'https://github.com/example/mobi-rent',
+    webLink: 'http://mobirent-cameroon.vercel.app/',
+    githubLink: 'https://github.com/rickytabe/mobirent-cameroon',
     techIcons: [
       '/nextdotjs.svg',
       '/tailwindcss.svg',
@@ -28,8 +28,8 @@ const projects = [
     description:
       'A full-stack platform connecting learners to tutors with live collaboration tools, API integrations, and an AI model that recommends the best tutor based on learning style and preferences. Developed during my Tech-Chantier internship.',
     image: '/tutor-finder.png',
-    webLink: 'https://tutor-finder.example.com',
-    githubLink: 'https://github.com/example/tutor-finder',
+    webLink: 'https://tutor-finder101.vercel.app',
+    githubLink: 'https://github.com/rickytabe/mobirent-cameroon',
     techIcons: [
       '/react.svg',
       '/tailwindcss.svg',
@@ -45,8 +45,8 @@ const projects = [
     description:
       'A fintech escrow and savings solution enabling secure peer-to-peer transactions, group savings, and conditional fund releases — designed to revolutionize online financial trust and collaboration.',
     image: '/nia-trust.png',
-    webLink: 'https://niatrust.example.com',
-    githubLink: 'https://github.com/example/niatrust',
+    webLink: 'https://niatrust-walet.vercel.app',
+    githubLink: 'https://github.com/rickytabe/mobirent-cameroon',
     techIcons: [
       '/nextdotjs.svg',
       '/tailwindcss.svg',
@@ -61,8 +61,8 @@ const projects = [
     description:
       'Hackathon-winning platform (Code4Change 2025) guiding aspiring tech professionals with real-time mentorship, AI-powered career navigation, and access to local and remote job or internship opportunities.',
     image: '/startwise.png',
-    webLink: 'https://startwise.example.com',
-    githubLink: 'https://github.com/example/startwise',
+    webLink: 'https://start-wise-five.vercel.app',
+    githubLink: 'https://github.com/rickytabe/StartWise',
     techIcons: [
       '/react.svg',
       '/tailwindcss.svg',
@@ -79,8 +79,8 @@ const projects = [
     description:
       'A multimodal AI assistant (text, image, and audio) designed for dynamic and natural interaction. Currently in development as an advanced alternative to traditional AI chat platforms.',
     image: '/cam-brilia.png',
-    webLink: 'https://cambrilia.example.com',
-    githubLink: 'https://github.com/example/cambrilia',
+    webLink: 'https://cam-brillia.vercel.app',
+    githubLink: 'https://github.com/rickytabe/cam-brillia',
     techIcons: [
       '/react.svg',
       '/tailwindcss.svg',
@@ -97,8 +97,8 @@ const projects = [
     description:
       'A restaurant management and e-commerce site that boosted daily sales by 10×, enabling customers to order online, reserve tables, and make secure payments seamlessly.',
     image: '/kmc.png',
-    webLink: 'https://kmc.example.com',
-    githubLink: 'https://github.com/example/kmc-restaurant',
+    webLink: 'https://kmc-restaurant.vercel.app',
+    githubLink: 'https://github.com/rickytabe/KMC-WESITE',
     techIcons: [
       '/nextdotjs.svg',
       '/tailwindcss.svg',
@@ -114,8 +114,8 @@ const projects = [
     description:
       'A high-speed mini e-commerce site for selling footwear online, focused on lightning-fast transactions and efficient online payment processing.',
     image: '/stepUp.png',
-    webLink: 'https://shoe-shop.example.com',
-    githubLink: 'https://github.com/example/stepup',
+    webLink: 'https://shoe-shop-ten.vercel.app',
+    githubLink: 'https://github.com/rickytabe/shoe-shop',
     techIcons: [
       '/html5.svg',
       '/tailwindcss.svg',
@@ -130,7 +130,7 @@ const projects = [
     description:
       'A fitness membership platform for Evogym, streamlining subscriptions, payments, and class bookings to grow their customer base and retention rates.',
     image: '/evogym.png',
-    webLink: 'https://evogym.example.com',
+    webLink: 'https://letsgymify.web.app',
     githubLink: 'https://github.com/example/evogym',
     techIcons: [
       '/react.svg',
@@ -177,7 +177,7 @@ export default function ProjectsSection() {
 
       <div className="relative max-w-7xl mx-auto">
         {/* Title */}
-        <h2 className="text-3xl md:text-4xl font-bold tracking-wide mb-4 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold tracking-wide mb-4 text-center text-white">
           My <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Top Projects</span>
         </h2>
         <p className="text-white/70 max-w-2xl mx-auto text-center mb-16">
@@ -189,7 +189,7 @@ export default function ProjectsSection() {
           {currentProjects.map((project, index) => (
             <div
               key={project.id}
-              className="group bg-gray-900/80 border border-white/10 rounded-2xl overflow-hidden hover:border-blue-500 transition-all duration-300 relative"
+              className="group bg-gray-900/80 border border-white/10 rounded-2xl overflow-hidden hover:bg-gradient-to-br from-blue-500/20 to-purple-600/20 transition-all duration-300 relative"
             >
               {/* Image Wrapper with Dark BG */}
               <div className="h-48 bg-gray-900 overflow-hidden relative">
@@ -206,27 +206,27 @@ export default function ProjectsSection() {
 
               {/* Content */}
               <div className="p-6 relative">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-xl font-bold">{project.title}</h3>
+                <div className="flex items-center justify-between mb-2 text-white">
+                  <h3 className="text-xl font-bold group-hover:text-sm transition-all duration-1000">{project.title}</h3>
                   {/* Tech Icons - Next to title */}
-                  <div className="flex items-center gap-2 ml-3">
+                  <div className="flex  items-center gap-2 ml-3">
                     {project.techIcons.map((icon, i) => (
                       <motion.div
                         key={i}
-                        className="relative"
+                        className="relative inset-0  w-8 h-8 bg-gray-800/50 rounded-md flex items-center justify-center p-1 border border-white/5 hover:border-blue-400/50 transition-all duration-1000 group-hover:scale-125 group-hover:mx-1 group-hover:bg-gradient-to-br from-blue-500/20 to-purple-600/20"
                         initial={{ color: '#ffffff' }}
                         whileHover={{
                           scale: 1.2,
                           transition: { duration: 0.3 }
                         }}
                       >
-                        <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      
                         <Image
                           src={icon}
                           alt="Technology icon"
                           width={20}
                           height={20}
-                          className="relative z-10 w-5 h-5 object-contain filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300"
+                          className="object-contain w-6 h-6 invert"
                         />
                       </motion.div>
                     ))}
