@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tabe-rickson.vercel.app/sitemap.xml
