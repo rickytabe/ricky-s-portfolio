@@ -69,7 +69,9 @@ export const metadata: Metadata = {
     creator: seoConfig.social.x,
     images: [seoConfig.image],
   },
-  verification: { google: "t9BbOpBqf37mPNp5vmUfTGS-wXGgkNfG7R1AulPe6gg" },
+  verification: { 
+    google: "t9BbOpBqf37mPNp5vmUfTGS-wXGgkNfG7R1AulPe6gg" 
+  },
   alternates: { canonical: seoConfig.siteUrl },
   category: "technology",
   classification: "Portfolio Website",
