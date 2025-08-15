@@ -86,7 +86,7 @@ export default function Navbar() {
 
   const downloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/tabe rickson.pdf';
+    link.href = '/tabe-rickson.pdf';
     link.download = 'Tabe Rickson.pdf';
     document.body.appendChild(link);
     link.click();
