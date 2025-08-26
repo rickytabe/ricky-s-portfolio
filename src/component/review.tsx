@@ -7,6 +7,8 @@ import { Star, MessageCircle, ChevronLeft, ChevronRight, X, Send } from 'lucide-
 import Image from 'next/image';
 import  supabase from '@/lib/supabase';
 import { timeStamp } from 'console';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface Review {
     id: string;
@@ -72,15 +74,19 @@ const AppReviews = () => {
                     rating: review.rating,
                     content: review.review_message,
                     date: formatDate(review.created_at),
-                    created_at: review.timestamp
+                    created_at: review.created_at
                 }));
                 setReviews(formattedReviews);
-                
+
+                // Show the latest review after mount
+                setCurrentReview(0);
+
                 // Calculate rating distribution
                 calculateRatingDistribution(formattedReviews);
             }
         } catch (error) {
             console.error('Error fetching reviews:', error);
+            toast.error('Failed to fetch reviews.');
         } finally {
             setLoading(false);
         }
@@ -145,7 +151,7 @@ const AppReviews = () => {
     // Handle form submission
     const handleSubmitReview = async (e: React.FormEvent): Promise<void> => {
         e.preventDefault();
-        
+
         try {
             const { data, error } = await supabase
                 .from('reviews')
@@ -156,7 +162,7 @@ const AppReviews = () => {
                         review_message: reviewContent,
                         rating: rating,
                         image: null,
-                        timestamp: new Date().toISOString()
+                      
                     }
                 ])
                 .select();
@@ -173,9 +179,11 @@ const AppReviews = () => {
                 setReviewName('');
                 setReviewJobTitle('');
                 setReviewContent('');
+                toast.success('Review posted successfully!');
             }
         } catch (error) {
             console.error('Error submitting review:', error);
+            toast.error('Failed to post review.');
         }
     };
 
