@@ -242,7 +242,7 @@ const AppReviews = () => {
                         viewport={{ once: true }}
                     />
                     <p className="text-white/70 mt-4">
-                        Hear from some of the people I've worked with. I value every piece of feedback and continuously strive to improve.
+                        Hear from some of the people I&apos;ve worked with. I value every piece of feedback and continuously strive to improve.
                     </p>
                 </motion.div>
 
