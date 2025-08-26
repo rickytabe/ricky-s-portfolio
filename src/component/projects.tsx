@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Github, ExternalLink } from 'lucide-react';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import AppReviews from './review';
 
 const projects = [
   {
@@ -177,12 +178,29 @@ export default function ProjectsSection() {
 
       <div className="relative max-w-7xl mx-auto">
         {/* Title */}
-        <h2 className="text-3xl md:text-4xl font-bold tracking-wide mb-4 text-center text-white">
-          My <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Top Projects</span>
-        </h2>
-        <p className="text-white/70 max-w-2xl mx-auto text-center mb-16">
+        <motion.div
+          className="mb-12 max-w-3xl flex flex-col"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold tracking-wide text-white">
+            <span className='text-blue-500'>#4</span> My Top Projects
+          </h2>
+          <motion.div
+            className="h-1 bg-gradient-to-r from-blue-400 to-purple-500 mt-2 w-90"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          />
+          <p className="text-white/70 mt-4">
           Showcasing my most impactful work that solves real-world problems
         </p>
+        </motion.div>
+
+        
 
         {/* Minimalist Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -220,7 +238,7 @@ export default function ProjectsSection() {
                           transition: { duration: 0.3 }
                         }}
                       >
-                      
+
                         <Image
                           src={icon}
                           alt="Technology icon"
@@ -292,6 +310,7 @@ export default function ProjectsSection() {
           </button>
         </div>
       </div>
+
     </section>
   );
 }

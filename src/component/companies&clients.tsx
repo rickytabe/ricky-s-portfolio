@@ -38,7 +38,7 @@ export default function ClientsSection() {
 
         >
           <h2 className="text-3xl md:text-4xl font-bold tracking-wide text-white">
-            <span className='text-blue-500'>#4</span> COMPANIES AND CLIENTS
+            <span className='text-blue-500'>#3</span> COMPANIES AND CLIENTS
           </h2>
           <motion.div
             className="h-1 bg-gradient-to-r from-blue-400 to-purple-500 mt-2 w-137"

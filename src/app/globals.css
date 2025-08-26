@@ -19,8 +19,29 @@
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* For Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 18px; /* Thick 18px scrollbar */
+  height: 18px; /* For horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Fully transparent track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7e22ce; /* Solid purple thumb */
+  border-radius: 20px; /* Pill-shaped thumb */
+  border: 4px solid transparent; /* Creates padding effect */
+  background-clip: padding-box; /* Prevents color bleed */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9333ea; /* Lighter purple on hover */
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: auto; /* 'auto' respects our 18px width */
+  scrollbar-color: #7e22ce transparent; /* Purple thumb, transparent track */
 }

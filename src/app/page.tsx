@@ -6,6 +6,7 @@ import ProjectsSection from "@/component/projects";
 import Navbar from "@/component/navbar";
 import ContactSection from "@/component/contact";
 import Footer from "@/component/footer";
+import Review from "@/component/review";
 
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
      <ExpertiseSection />
      <ClientsSection />
      <ProjectsSection />
+     <Review  />
      <ContactSection />
      <Footer />
     </div>

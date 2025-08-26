@@ -139,7 +139,7 @@ export default function ExpertiseSection() {
               {/* Card container */}
               <div className="h-full bg-gray-900/80 border border-white/10 hover:bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-30000 overflow-hidden">
                 {/* Icon */}
-                <div className="relative z-10 mb-6 flex flex-col md:flex-row items-start  md:items-center justify-between space-y-4 md:space-y-0 md:space-x-4">
+                <div className="relative z-10 mb-6 flex flex-col lg:flex-row items-start  lg:items-center justify-between space-y-4 lg:space-y-0 lg:space-x-4">
                   <div className="inline-flex items-center justify-center p-3 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-lg transition-transform transform group-hover:scale-110">
                     {item.icon}
                   </div>
