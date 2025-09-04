@@ -189,7 +189,7 @@ export default function ProjectsSection() {
             <span className='text-blue-500'>#4</span> My Top Projects
           </h2>
           <motion.div
-            className="h-1 bg-gradient-to-r from-blue-400 to-purple-500 mt-2 w-90"
+            className="h-1 bg-gradient-to-r from-blue-400 to-purple-500 mt-2 w-45 md:90"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             transition={{ duration: 0.5 }}
